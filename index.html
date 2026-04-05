@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Doria Cai — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+    <style>
+      .intro { text-align: left; padding: 60px 36px; max-width: 920px; margin: 0 auto; }
+      .projects { padding: 0 18px 60px; }
+      .project-list { max-width: 920px; margin: 0 auto; padding: 0; list-style: none; }
+      @media (min-width: 900px) {
+        .project-list { padding: 0; }
+      }
+    </style>
+  <style>
+    .group-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 48px 36px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: block;
+    }
+    .project-list .group-label:first-child {
+      padding-top: 24px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">Doria Cai</div>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="intro">
+    <p>Hi! I'm Doria, an AI PM and Creative Technologist based in New York. I'm currently interning as a Product Manager at Kaze AI, and previously interned at ByteDance and Meitu, where I shipped generative AI products that reached millions of users. I'm also finishing my M.A. at Columbia University, studying generative AI, HCI, and interactive media.</p>
+    <p>I love exploring and building things across games, AI tools, and research prototypes. My work sits at the intersection of AI, product thinking, and creative technology, and that's genuinely the space I find most exciting. I get most energized when cutting-edge AI meets real human imagination.</p>
+  </header>
+
+  <main>
+    <section class="projects">
+      <ul class="project-list">
+
+        <!-- ── Product & Design ── -->
+        <li class="group-label">Product &amp; Design</li>
+
+        <li class="project-row">
+          <a class="project-link" href="https://kaze.ai" target="_blank" rel="noopener">
+            <div>
+              <span class="proj-name">Kaze AI</span>
+              <span class="proj-year">— 2026</span>
+            </div>
+            <div class="proj-tags">Product · AI</div>
+          </a>
+        </li>
+
+        <li class="project-row" data-image="assets/images/tabit.jpg">
+          <a class="project-link" href="projects/tabit.html">
+            <div>
+              <span class="proj-name">Tabit</span>
+              <span class="proj-year">— 2025—</span>
+            </div>
+            <div class="proj-tags">Product</div>
+          </a>
+        </li>
+
+        <li class="project-row" data-image="assets/images/ArtiNova/artinova1.png">
+          <a class="project-link" href="projects/artinova-ai.html">
+            <div>
+              <span class="proj-name">ArtiNova.ai</span>
+              <span class="proj-year">— 2024</span>
+            </div>
+            <div class="proj-tags">AIGC · Design</div>
+          </a>
+        </li>
+
+        <li class="project-row" data-image="assets/images/C-Tan/ctan1.png">
+          <a class="project-link" href="projects/c-tan.html">
+            <div>
+              <span class="proj-name">C-Tan</span>
+              <span class="proj-year">— 2023</span>
+            </div>
+            <div class="proj-tags">SaaS · UI</div>
+          </a>
+        </li>
+
+        <!-- ── Research & Industry ── -->
+        <li class="group-label">Research &amp; Industry</li>
+
+        <li class="project-row" data-image="assets/images/scene2scene.jpg">
+          <a class="project-link" href="projects/scene2scene.html">
+            <div>
+              <span class="proj-name">Scene2Scene</span>
+              <span class="proj-year">— 2025</span>
+            </div>
+            <div class="proj-tags">Research</div>
+          </a>
+        </li>
+
+        <li class="project-row" data-image="assets/images/bytedance.jpg">
+          <a class="project-link" href="projects/bytedance.html">
+            <div>
+              <span class="proj-name">Bytedance</span>
+              <span class="proj-year">— 2024</span>
+            </div>
+            <div class="proj-tags">Industry</div>
+          </a>
+        </li>
+
+        <!-- ── Games & Interactive ── -->
+        <li class="group-label">Games &amp; Interactive</li>
+
+        <li class="project-row" data-image="assets/images/dawning/A4 - 3.png">
+          <a class="project-link" href="projects/dawning.html">
+            <div>
+              <span class="proj-name">Dawning</span>
+              <span class="proj-year">— 2024</span>
+            </div>
+            <div class="proj-tags">Game · Unity</div>
+          </a>
+        </li>
+
+        <li class="project-row" data-image="assets/images/Virtual Empathy/1.png">
+          <a class="project-link" href="projects/virtual-empathy.html">
+            <div>
+              <span class="proj-name">Virtual Empathy</span>
+              <span class="proj-year">— 2023</span>
+            </div>
+            <div class="proj-tags">VR · Game</div>
+          </a>
+        </li>
+
+        <li class="project-row" data-image="assets/images/Hear Your Sound/1.png">
+          <a class="project-link" href="projects/hear-your-sound.html">
+            <div>
+              <span class="proj-name">Hear Your Sound</span>
+              <span class="proj-year">— 2023</span>
+            </div>
+            <div class="proj-tags">Interactive</div>
+          </a>
+        </li>
+
+        <li class="project-row" data-image="assets/images/Doodle Spaceship/doodle1.png">
+          <a class="project-link" href="projects/doodle-spaceship.html">
+            <div>
+              <span class="proj-name">Doodle Spaceship</span>
+              <span class="proj-year">— 2022</span>
+            </div>
+            <div class="proj-tags">Game · Ed</div>
+          </a>
+        </li>
+
+        <li class="project-row" data-image="assets/images/Eco Alert/Frame 1171275790.png">
+          <a class="project-link" href="projects/eco-alert.html">
+            <div>
+              <span class="proj-name">Eco Alert</span>
+              <span class="proj-year">— 2023</span>
+            </div>
+            <div class="proj-tags">VR · Game</div>
+          </a>
+        </li>
+
+      </ul>
+    </section>
+  </main>
+
+  <footer id="contact" style="padding:40px 36px 120px;color:var(--muted)">
+    <div class="container">
+      <div>Contact — <a href="mailto:hello@doriacai.com" style="color:var(--text);text-decoration:none">hello@doriacai.com</a></div>
+    </div>
+  </footer>
+
+  <img id="hoverPreview" src="" alt="project preview" aria-hidden="true" />
+
+  <script>
+    (function(){
+      const preview = document.getElementById('hoverPreview');
+      const rows = document.querySelectorAll('.project-row');
+
+      rows.forEach(row=>{
+        row.addEventListener('mouseenter', (e)=>{
+          const img = row.dataset.image;
+          if(!img) return;
+          const tester = new Image();
+          tester.onload = ()=>{
+            preview.src = img;
+            preview.style.opacity = '1';
+            preview.style.display = 'block';
+          };
+          tester.onerror = ()=>{
+            preview.style.opacity = '0';
+            preview.style.display = 'none';
+          };
+          tester.src = img;
+        });
+
+        row.addEventListener('mousemove', (e)=>{
+          const x = e.clientX + 36;
+          const y = e.clientY + 18;
+          preview.style.left = x + 'px';
+          preview.style.top = y + 'px';
+        });
+
+        row.addEventListener('mouseleave', ()=>{
+          preview.style.opacity = '0';
+          setTimeout(()=>{ preview.style.display = 'none'; preview.src = ''; }, 180);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
