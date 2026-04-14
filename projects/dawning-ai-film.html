@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dawning AI Film — Doria Cai</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .film-hero {
+      padding: 48px 36px 28px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .film-hero h1 {
+      margin: 0 0 8px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .film-embed {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 36px 60px;
+    }
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #000;
+    }
+    .video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    @media (max-width: 640px) {
+      .film-hero { padding: 28px 18px 18px; }
+      .film-embed { padding: 0 18px 40px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">Doria Cai</div>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+    </div>
+  </nav>
+
+  <div class="film-hero">
+    <h1>Dawning AI Film</h1>
+    <div class="project-meta">2024 · AI Film · 3 min</div>
+  </div>
+
+  <div class="film-embed">
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/_VbLceO011U"
+        title="Dawning AI Film"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</body>
+</html>

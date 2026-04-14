@@ -5,26 +5,59 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Doria Cai — Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-    <style>
-      .intro { text-align: left; padding: 60px 36px; max-width: 920px; margin: 0 auto; }
-      .projects { padding: 0 18px 60px; }
-      .project-list { max-width: 920px; margin: 0 auto; padding: 0; list-style: none; }
-      @media (min-width: 900px) {
-        .project-list { padding: 0; }
-      }
-    </style>
   <style>
-    .group-label {
+    .intro { text-align: left; padding: 60px 36px 40px; max-width: 920px; margin: 0 auto; }
+    .intro p { max-width: 72ch; font-size: 1.05rem; color: var(--muted); margin: 0 0 14px; }
+
+    /* Tab bar */
+    .tab-bar {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 36px;
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
       font-size: 10px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
-      padding: 48px 36px 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      display: block;
+      padding: 14px 20px 13px;
+      position: relative;
+      transition: color 120ms;
     }
-    .project-list .group-label:first-child {
-      padding-top: 24px;
+    .tab-btn:first-child { padding-left: 0; }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active {
+      color: var(--text);
+    }
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0; right: 0;
+      height: 1px;
+      background: var(--accent);
+    }
+    .tab-btn:first-child.active::after { left: 0; }
+
+    /* Panels */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .projects { padding: 0 18px 60px; }
+    .project-list { max-width: 920px; margin: 0 auto; padding: 0; list-style: none; }
+    @media (min-width: 900px) { .project-list { padding: 0; } }
+
+    @media (max-width: 640px) {
+      .intro { padding: 28px 18px 28px; }
+      .tab-bar { padding: 0 18px; gap: 0; overflow-x: auto; white-space: nowrap; }
+      .tab-btn { padding: 12px 14px 11px; font-size: 9px; }
     }
   </style>
 </head>
@@ -43,160 +76,200 @@
   </header>
 
   <main>
-    <section class="projects">
-      <ul class="project-list">
+    <!-- Tab bar -->
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="ai-product">AI Product</button>
+      <button class="tab-btn" data-tab="ai-work">AI Work</button>
+      <button class="tab-btn" data-tab="research">Research &amp; Industry</button>
+      <button class="tab-btn" data-tab="games">Games &amp; Interactive</button>
+    </div>
 
-  <!-- ── AI Product ── -->
-  <li class="group-label">AI Product</li>
+    <!-- AI Product -->
+    <div class="tab-panel active" id="tab-ai-product">
+      <section class="projects">
+        <ul class="project-list">
 
-        <li class="project-row">
-          <a class="project-link" href="https://kaze.ai" target="_blank" rel="noopener">
-            <div>
-              <span class="proj-name">Kaze AI</span>
-              <span class="proj-year">— 2026</span>
-            </div>
-            <div class="proj-tags">Product · AI</div>
-          </a>
-        </li>
+          <li class="project-row">
+            <a class="project-link" href="https://kaze.ai" target="_blank" rel="noopener">
+              <div>
+                <span class="proj-name">Kaze AI</span>
+                <span class="proj-year">— 2026</span>
+              </div>
+              <div class="proj-tags">Product · AI</div>
+            </a>
+          </li>
 
-        <li class="project-row" data-image="assets/images/tabit.jpg">
-          <a class="project-link" href="https://chromewebstore.google.com/detail/tabit/balfedbffogihlkfffhngojhmjpjfpcf" target="_blank" rel="noopener">
-            <div>
-              <span class="proj-name">Tabit</span>
-              <span class="proj-year">— 2026</span>
-            </div>
-            <div class="proj-tags">Product</div>
-          </a>
-        </li>
+          <li class="project-row" data-image="assets/images/tabit.jpg">
+            <a class="project-link" href="https://chromewebstore.google.com/detail/tabit/balfedbffogihlkfffhngojhmjpjfpcf" target="_blank" rel="noopener">
+              <div>
+                <span class="proj-name">Tabit</span>
+                <span class="proj-year">— 2026</span>
+              </div>
+              <div class="proj-tags">Product</div>
+            </a>
+          </li>
 
-        <li class="project-row">
-          <a class="project-link" href="https://devpost.com/software/concreate" target="_blank" rel="noopener">
-            <div>
-              <span class="proj-name">ConCreate</span>
-              <span class="proj-year">— 2025</span>
-            </div>
-            <div class="proj-tags">Product · AI</div>
-          </a>
-        </li>
+          <li class="project-row">
+            <a class="project-link" href="https://devpost.com/software/concreate" target="_blank" rel="noopener">
+              <div>
+                <span class="proj-name">ConCreate</span>
+                <span class="proj-year">— 2025</span>
+              </div>
+              <div class="proj-tags">Product · AI</div>
+            </a>
+          </li>
 
-        <li class="project-row" data-image="assets/images/ArtiNova/artinova1.png">
-          <a class="project-link" href="projects/artinova-ai.html">
-            <div>
-              <span class="proj-name">ArtiNova.ai</span>
-              <span class="proj-year">— 2024</span>
-            </div>
-            <div class="proj-tags">AIGC · Design</div>
-          </a>
-        </li>
+          <li class="project-row" data-image="assets/images/ArtiNova/artinova1.png">
+            <a class="project-link" href="projects/artinova-ai.html">
+              <div>
+                <span class="proj-name">ArtiNova.ai</span>
+                <span class="proj-year">— 2024</span>
+              </div>
+              <div class="proj-tags">AIGC · Design</div>
+            </a>
+          </li>
 
-        <li class="project-row" data-image="assets/images/C-Tan/ctan1.png">
-          <a class="project-link" href="projects/c-tan.html">
-            <div>
-              <span class="proj-name">C-Tan</span>
-              <span class="proj-year">— 2023</span>
-            </div>
-            <div class="proj-tags">SaaS · UI</div>
-          </a>
-        </li>
+          <li class="project-row" data-image="assets/images/C-Tan/ctan1.png">
+            <a class="project-link" href="projects/c-tan.html">
+              <div>
+                <span class="proj-name">C-Tan</span>
+                <span class="proj-year">— 2023</span>
+              </div>
+              <div class="proj-tags">SaaS · UI</div>
+            </a>
+          </li>
 
-        <li class="project-row" data-image="assets/images/bytedance.jpg">
-          <a class="project-link" href="projects/bytedance.html">
-            <div>
-              <span class="proj-name">Bytedance</span>
-              <span class="proj-year">— 2025</span>
-            </div>
-            <div class="proj-tags">Industry</div>
-          </a>
-        </li>
+          <li class="project-row" data-image="assets/images/bytedance.jpg">
+            <a class="project-link" href="projects/bytedance.html">
+              <div>
+                <span class="proj-name">Bytedance</span>
+                <span class="proj-year">— 2025</span>
+              </div>
+              <div class="proj-tags">Industry</div>
+            </a>
+          </li>
 
-        <!-- ── Research & Industry ── -->
-        <li class="group-label">Research &amp; Industry</li>
+        </ul>
+      </section>
+    </div>
 
-        <li class="project-row" data-image="assets/images/scene2scene.jpg">
-          <a class="project-link" href="projects/scene2scene.html">
-            <div>
-              <span class="proj-name">Scene2Scene</span>
-              <span class="proj-year">— 2025</span>
-            </div>
-            <div class="proj-tags">Research</div>
-          </a>
-        </li>
+    <!-- AI Work -->
+    <div class="tab-panel" id="tab-ai-work">
+      <section class="projects">
+        <ul class="project-list">
 
-        <!-- ── Games & Interactive ── -->
-        <li class="group-label">Games &amp; Interactive</li>
+          <li class="project-row">
+            <a class="project-link" href="projects/dawning-ai-film.html">
+              <div>
+                <span class="proj-name">Dawning AI Film</span>
+                <span class="proj-year">— 2024</span>
+              </div>
+              <div class="proj-tags">Film · AI · 3 min</div>
+            </a>
+          </li>
 
-        <li class="project-row" data-image="assets/images/dawning/A4 - 3.png">
-          <a class="project-link" href="projects/dawning.html">
-            <div>
-              <span class="proj-name">Dawning</span>
-              <span class="proj-year">— 2024</span>
-            </div>
-            <div class="proj-tags">Game · Unity</div>
-          </a>
-        </li>
+        </ul>
+      </section>
+    </div>
 
-        <li class="project-row">
-          <a class="project-link" href="https://devpost.com/software/awake-j3vrm7" target="_blank" rel="noopener">
-            <div>
-              <span class="proj-name">Awake</span>
-              <span class="proj-year">— 2024</span>
-            </div>
-            <div class="proj-tags">AI · Game</div>
-          </a>
-        </li>
+    <!-- Research & Industry -->
+    <div class="tab-panel" id="tab-research">
+      <section class="projects">
+        <ul class="project-list">
 
-        <li class="project-row">
-          <a class="project-link" href="https://mark-zf.itch.io/blub-blub-bubble" target="_blank" rel="noopener">
-            <div>
-              <span class="proj-name">BlubBlub Bubble</span>
-              <span class="proj-year">— 2022</span>
-            </div>
-            <div class="proj-tags">Game</div>
-          </a>
-        </li>
+          <li class="project-row" data-image="assets/images/scene2scene.jpg">
+            <a class="project-link" href="projects/scene2scene.html">
+              <div>
+                <span class="proj-name">Scene2Scene</span>
+                <span class="proj-year">— 2025</span>
+              </div>
+              <div class="proj-tags">Research</div>
+            </a>
+          </li>
 
-        <li class="project-row" data-image="assets/images/Virtual Empathy/1.png">
-          <a class="project-link" href="projects/virtual-empathy.html">
-            <div>
-              <span class="proj-name">Virtual Empathy</span>
-              <span class="proj-year">— 2023</span>
-            </div>
-            <div class="proj-tags">VR · Game</div>
-          </a>
-        </li>
+        </ul>
+      </section>
+    </div>
 
-        <li class="project-row" data-image="assets/images/Hear Your Sound/1.png">
-          <a class="project-link" href="projects/hear-your-sound.html">
-            <div>
-              <span class="proj-name">Hear Your Sound</span>
-              <span class="proj-year">— 2023</span>
-            </div>
-            <div class="proj-tags">Interactive</div>
-          </a>
-        </li>
+    <!-- Games & Interactive -->
+    <div class="tab-panel" id="tab-games">
+      <section class="projects">
+        <ul class="project-list">
 
-        <li class="project-row" data-image="assets/images/Doodle Spaceship/doodle1.png">
-          <a class="project-link" href="projects/doodle-spaceship.html">
-            <div>
-              <span class="proj-name">Doodle Spaceship</span>
-              <span class="proj-year">— 2022</span>
-            </div>
-            <div class="proj-tags">Game · Ed</div>
-          </a>
-        </li>
+          <li class="project-row" data-image="assets/images/dawning/A4 - 3.png">
+            <a class="project-link" href="projects/dawning.html">
+              <div>
+                <span class="proj-name">Dawning</span>
+                <span class="proj-year">— 2024</span>
+              </div>
+              <div class="proj-tags">Game · Unity</div>
+            </a>
+          </li>
 
-        <li class="project-row" data-image="assets/images/Eco Alert/Frame 1171275790.png">
-          <a class="project-link" href="projects/eco-alert.html">
-            <div>
-              <span class="proj-name">Eco Alert</span>
-              <span class="proj-year">— 2023</span>
-            </div>
-            <div class="proj-tags">VR · Game</div>
-          </a>
-        </li>
+          <li class="project-row">
+            <a class="project-link" href="https://devpost.com/software/awake-j3vrm7" target="_blank" rel="noopener">
+              <div>
+                <span class="proj-name">Awake</span>
+                <span class="proj-year">— 2024</span>
+              </div>
+              <div class="proj-tags">AI · Game</div>
+            </a>
+          </li>
 
-      </ul>
-    </section>
+          <li class="project-row">
+            <a class="project-link" href="https://mark-zf.itch.io/blub-blub-bubble" target="_blank" rel="noopener">
+              <div>
+                <span class="proj-name">BlubBlub Bubble</span>
+                <span class="proj-year">— 2022</span>
+              </div>
+              <div class="proj-tags">Game</div>
+            </a>
+          </li>
+
+          <li class="project-row" data-image="assets/images/Virtual Empathy/1.png">
+            <a class="project-link" href="projects/virtual-empathy.html">
+              <div>
+                <span class="proj-name">Virtual Empathy</span>
+                <span class="proj-year">— 2023</span>
+              </div>
+              <div class="proj-tags">VR · Game</div>
+            </a>
+          </li>
+
+          <li class="project-row" data-image="assets/images/Hear Your Sound/1.png">
+            <a class="project-link" href="projects/hear-your-sound.html">
+              <div>
+                <span class="proj-name">Hear Your Sound</span>
+                <span class="proj-year">— 2023</span>
+              </div>
+              <div class="proj-tags">Interactive</div>
+            </a>
+          </li>
+
+          <li class="project-row" data-image="assets/images/Doodle Spaceship/doodle1.png">
+            <a class="project-link" href="projects/doodle-spaceship.html">
+              <div>
+                <span class="proj-name">Doodle Spaceship</span>
+                <span class="proj-year">— 2022</span>
+              </div>
+              <div class="proj-tags">Game · Ed</div>
+            </a>
+          </li>
+
+          <li class="project-row" data-image="assets/images/Eco Alert/Frame 1171275790.png">
+            <a class="project-link" href="projects/eco-alert.html">
+              <div>
+                <span class="proj-name">Eco Alert</span>
+                <span class="proj-year">— 2023</span>
+              </div>
+              <div class="proj-tags">VR · Game</div>
+            </a>
+          </li>
+
+        </ul>
+      </section>
+    </div>
+
   </main>
 
   <footer id="contact" style="padding:40px 36px 120px;color:var(--muted)">
@@ -209,38 +282,55 @@
 
   <script>
     (function(){
-      const preview = document.getElementById('hoverPreview');
-      const rows = document.querySelectorAll('.project-row');
+      // Tab switching
+      const tabs = document.querySelectorAll('.tab-btn');
+      const panels = document.querySelectorAll('.tab-panel');
 
-      rows.forEach(row=>{
-        row.addEventListener('mouseenter', (e)=>{
-          const img = row.dataset.image;
-          if(!img) return;
-          const tester = new Image();
-          tester.onload = ()=>{
-            preview.src = img;
-            preview.style.opacity = '1';
-            preview.style.display = 'block';
-          };
-          tester.onerror = ()=>{
-            preview.style.opacity = '0';
-            preview.style.display = 'none';
-          };
-          tester.src = img;
-        });
-
-        row.addEventListener('mousemove', (e)=>{
-          const x = e.clientX + 36;
-          const y = e.clientY + 18;
-          preview.style.left = x + 'px';
-          preview.style.top = y + 'px';
-        });
-
-        row.addEventListener('mouseleave', ()=>{
-          preview.style.opacity = '0';
-          setTimeout(()=>{ preview.style.display = 'none'; preview.src = ''; }, 180);
+      tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          panels.forEach(p => p.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
         });
       });
+
+      // Hover preview
+      const preview = document.getElementById('hoverPreview');
+
+      document.addEventListener('mouseenter', handleEnter, true);
+      document.addEventListener('mouseleave', handleLeave, true);
+      document.addEventListener('mousemove', handleMove);
+
+      function handleEnter(e) {
+        const row = e.target.closest('.project-row');
+        if (!row) return;
+        const img = row.dataset.image;
+        if (!img) return;
+        const tester = new Image();
+        tester.onload = () => {
+          preview.src = img;
+          preview.style.opacity = '1';
+          preview.style.display = 'block';
+        };
+        tester.onerror = () => {
+          preview.style.opacity = '0';
+          preview.style.display = 'none';
+        };
+        tester.src = img;
+      }
+
+      function handleLeave(e) {
+        const row = e.target.closest('.project-row');
+        if (!row) return;
+        preview.style.opacity = '0';
+        setTimeout(() => { preview.style.display = 'none'; preview.src = ''; }, 180);
+      }
+
+      function handleMove(e) {
+        preview.style.left = (e.clientX + 36) + 'px';
+        preview.style.top  = (e.clientY + 18) + 'px';
+      }
     })();
   </script>
 </body>
