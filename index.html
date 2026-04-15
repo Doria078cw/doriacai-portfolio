@@ -138,12 +138,36 @@
     /* Push content below fixed nav */
     body { padding-top: 0; }
     .intro {
-      text-align: left;
-      padding: 100px 36px 40px;
-      max-width: 920px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 900px;
       margin: 0 auto;
+      padding: 100px 48px 48px;
     }
-    .intro p { max-width: 72ch; font-size: 1.05rem; color: var(--muted); margin: 0 0 14px; font-family: 'Poppins', sans-serif; font-weight: 300; }
+    .intro-photo {
+      width: 280px;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 0 40px rgba(255,255,255,0.15), 0 0 80px rgba(255,255,255,0.06);
+      display: block;
+      flex-shrink: 0;
+    }
+    .intro-text { position: relative; }
+    .intro-bracket {
+      font-family: serif;
+      font-size: 80px;
+      color: rgba(255,255,255,0.15);
+      line-height: 0;
+      user-select: none;
+      display: block;
+    }
+    .intro-bracket-open  { margin-bottom: 24px; }
+    .intro-bracket-close { text-align: right; margin-top: 24px; }
+    .intro p { font-size: 0.97rem; color: var(--muted); margin: 0 0 14px; font-family: 'Poppins', sans-serif; font-weight: 300; line-height: 1.75; }
+    .intro p:last-of-type { margin-bottom: 0; }
     .intro a.bio-link { color: inherit; text-decoration: none; transition: color 140ms; }
     .intro a.bio-link:hover { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
 
@@ -232,7 +256,8 @@
       .pill-nav { top: 12px; padding: 8px 18px; width: 94%; }
       .pn-mid { display: none; }
       .pn-subtitle { display: none; }
-      .intro { padding: 80px 18px 28px; }
+      .intro { grid-template-columns: 1fr; padding: 80px 24px 36px; gap: 28px; }
+      .intro-photo { width: 100%; aspect-ratio: 4/3; }
       .tab-bar { padding: 0 18px; overflow-x: auto; white-space: nowrap; }
       .tab-btn { padding: 12px 14px 11px; font-size: 9px; }
       #previewCard { display: none !important; }
@@ -292,8 +317,16 @@
   </nav>
 
   <header class="intro" id="top">
-    <p>Hi, I'm Doria — an AI Builder and Creative Technologist based in New York. I interned as a Product Manager and AIGC Designer at <a class="bio-link" href="https://kaze.ai" target="_blank" rel="noopener">Kaze AI</a>, <a class="bio-link" href="https://www.bytedance.com" target="_blank" rel="noopener">ByteDance</a>, and <a class="bio-link" href="https://www.meitu.com" target="_blank" rel="noopener">Meitu</a>, where I shipped generative AI products that reached millions of users. I'm also finishing my Master's at Columbia University, studying generative AI, HCI, and interactive media.</p>
-    <p>I build at the intersection of generative AI and human experience — from AIGC tools and immersive games to research prototypes.</p>
+    <!-- LEFT: photo -->
+    <img class="intro-photo" src="assets/images/selfPortrait.jpg" alt="Doria Cai" />
+
+    <!-- RIGHT: bracketed bio -->
+    <div class="intro-text">
+      <span class="intro-bracket intro-bracket-open">「</span>
+      <p>Hi, I'm Doria — an AI Builder and Creative Technologist based in New York. I interned as a Product Manager and AIGC Designer at <a class="bio-link" href="https://kaze.ai" target="_blank" rel="noopener">Kaze AI</a>, <a class="bio-link" href="https://www.bytedance.com" target="_blank" rel="noopener">ByteDance</a>, and <a class="bio-link" href="https://www.meitu.com" target="_blank" rel="noopener">Meitu</a>, where I shipped generative AI products that reached millions of users. I'm also finishing my Master's at Columbia University, studying generative AI, HCI, and interactive media.</p>
+      <p>I build at the intersection of generative AI and human experience — from AIGC tools and immersive games to research prototypes.</p>
+      <span class="intro-bracket intro-bracket-close">」</span>
+    </div>
   </header>
 
   <main id="work">
