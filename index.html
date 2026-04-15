@@ -159,16 +159,23 @@
       position: relative;
       padding: 28px 24px;
     }
-    .intro-bracket {
+    .intro-text::before,
+    .intro-text::after {
+      content: '';
       position: absolute;
-      font-family: serif;
-      font-size: 72px;
-      color: rgba(255,255,255,0.15);
-      line-height: 1;
-      user-select: none;
+      width: 28px;
+      height: 28px;
     }
-    .intro-bracket-open  { top: -10px;  left: 0; }
-    .intro-bracket-close { bottom: -10px; right: 0; }
+    .intro-text::before {
+      top: 0; left: 0;
+      border-top: 1.5px solid rgba(255,255,255,0.45);
+      border-left: 1.5px solid rgba(255,255,255,0.45);
+    }
+    .intro-text::after {
+      bottom: 0; right: 0;
+      border-bottom: 1.5px solid rgba(255,255,255,0.45);
+      border-right: 1.5px solid rgba(255,255,255,0.45);
+    }
     .intro p { font-size: 0.97rem; color: var(--muted); margin: 0 0 14px; font-family: 'Poppins', sans-serif; font-weight: 300; line-height: 1.75; }
     .intro p:last-of-type { margin-bottom: 0; }
     .intro a.bio-link { color: inherit; text-decoration: none; transition: color 140ms; }
@@ -325,10 +332,8 @@
 
     <!-- RIGHT: bracketed bio -->
     <div class="intro-text">
-      <span class="intro-bracket intro-bracket-open">「</span>
       <p>Hi, I'm Doria — an AI Builder and Creative Technologist based in New York. I interned as a Product Manager and AIGC Designer at <a class="bio-link" href="https://kaze.ai" target="_blank" rel="noopener">Kaze AI</a>, <a class="bio-link" href="https://www.bytedance.com" target="_blank" rel="noopener">ByteDance</a>, and <a class="bio-link" href="https://www.meitu.com" target="_blank" rel="noopener">Meitu</a>, where I shipped generative AI products that reached millions of users. I'm also finishing my Master's at Columbia University, studying generative AI, HCI, and interactive media.</p>
       <p>I build at the intersection of generative AI and human experience — from AIGC tools and immersive games to research prototypes.</p>
-      <span class="intro-bracket intro-bracket-close">」</span>
     </div>
   </header>
 
