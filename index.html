@@ -182,32 +182,38 @@
     .intro a.bio-link:hover { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
 
     /* ── Sections ── */
-    .site-section { padding: 0 0 20px; }
+    .site-section { padding: 0 0 40px; }
     .section-label {
+      display: block;
       max-width: 900px;
       margin: 0 auto;
-      padding: 52px 48px 14px;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 80px 48px 24px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: clamp(36px, 5vw, 64px);
+      color: rgba(255,255,255,0.9);
+      text-align: left;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
     }
+    .section-label::before { content: '「'; color: rgba(255,255,255,0.35); }
+    .section-label::after  { content: '」'; color: rgba(255,255,255,0.35); }
     .subsection-label {
       max-width: 900px;
       margin: 0 auto;
-      padding: 32px 48px 10px;
+      padding: 28px 48px 10px 128px;
       font-size: 9px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: rgba(154,160,166,0.5);
     }
     .projects { padding: 0 18px 20px; }
-    .project-list { max-width: 900px; margin: 0 auto; padding: 0; list-style: none; }
+    .project-list { max-width: 900px; margin: 0 auto; padding: 0 0 0 80px; list-style: none; }
 
     @media (max-width: 700px) {
-      .section-label    { padding: 36px 24px 12px; }
-      .subsection-label { padding: 24px 24px 8px; }
+      .section-label    { padding: 48px 24px 16px; }
+      .subsection-label { padding: 20px 24px 8px 44px; }
+      .project-list     { padding-left: 24px; }
     }
 
     /* ── Floating preview card ── */
