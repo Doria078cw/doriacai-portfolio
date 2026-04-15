@@ -220,59 +220,131 @@
       text-transform: uppercase;
       color: rgba(154,160,166,0.5);
     }
-    .projects { padding: 0 18px 20px; }
-    .project-list { max-width: 900px; margin: 0 auto; padding: 0 0 0 72px; list-style: none; }
-    .proj-name, .proj-year, .proj-tags {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 300;
-      font-size: 16px;
-      color: rgba(255,255,255,0.7);
+    /* ── Card Grid ── */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 48px 80px;
     }
 
-    @media (max-width: 700px) {
-      .section-label    { padding: 48px 24px 16px; }
-      .subsection-label { padding: 20px 24px 8px 44px; }
-      .project-list     { padding-left: 20px; }
-    }
-
-    /* ── Floating preview card ── */
-    #previewCard {
-      position: fixed;
-      top: 0; left: 0;
-      pointer-events: none;
-      z-index: 1200;
-      width: 240px;
-      background: #1a1a1a;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 10px;
+    /* Base card */
+    .proj-card {
+      aspect-ratio: 4/3;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.7);
-      opacity: 0;
-      transition: opacity 160ms ease;
-      display: none;
+      position: relative;
+      display: block;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
-    #previewCard img {
-      width: 100%;
-      height: 140px;
+    .proj-card:hover { transform: scale(1.02); }
+    .proj-card > img {
+      width: 100%; height: 100%;
       object-fit: cover;
       display: block;
     }
-    .preview-info {
-      padding: 10px 12px 12px;
+    .card-grad {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .card-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 16px;
+    }
+    .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      color: white;
+      margin: 0 0 4px;
+      line-height: 1.3;
+    }
+    .card-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Placeholder card (no image) */
+    .proj-card--placeholder {
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .proj-card--placeholder .card-grad { display: none; }
+    .proj-card--placeholder .card-info {
+      position: absolute;
+      inset: 0;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      bottom: auto;
     }
-    .preview-title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text);
+    .proj-card--placeholder .card-title { color: rgba(255,255,255,0.35); }
+    .proj-card--placeholder .card-tag   { margin-top: 4px; }
+
+    /* NDA card */
+    .proj-card--nda { cursor: default; }
+    .proj-card--nda:hover { transform: none; }
+    .proj-card--nda > img {
+      filter: blur(12px) brightness(0.3);
+      transform: scale(1.1);
     }
-    .preview-tag {
-      font-size: 0.72rem;
-      color: var(--muted);
+    .nda-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #111118, #1a1a2e);
+    }
+    .nda-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
+      padding: 16px;
+      transition: opacity 0.25s;
+    }
+    .nda-center svg { opacity: 0.5; margin-bottom: 6px; }
+    .nda-center .card-title { color: rgba(255,255,255,0.7); }
+    .nda-hover {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
       letter-spacing: 0.04em;
+      opacity: 0;
+      transition: opacity 0.25s;
     }
+    .proj-card--nda:hover .nda-center { opacity: 0; }
+    .proj-card--nda:hover .nda-hover  { opacity: 1; }
+
+    @media (max-width: 860px) {
+      .proj-grid { grid-template-columns: repeat(2, 1fr); padding: 0 24px 60px; }
+      .section-label    { padding: 48px 24px 16px; }
+      .subsection-label { padding: 20px 24px 8px; }
+    }
+    @media (max-width: 540px) {
+      .proj-grid { grid-template-columns: 1fr; }
+    }
+
 
     @media (max-width: 700px) {
       .pill-nav { top: 12px; padding: 8px 18px; width: 94%; }
@@ -280,7 +352,6 @@
       .pn-subtitle { display: none; }
       .intro { grid-template-columns: 1fr; padding: 80px 24px 36px; gap: 28px; }
       .intro-photo { width: 100%; aspect-ratio: 4/3; }
-      #previewCard { display: none !important; }
     }
   </style>
 </head>
@@ -352,152 +423,186 @@
     <!-- ── AI Product ── -->
     <section class="site-section" id="ai-product">
       <div class="section-label">AI Product</div>
-      <div class="projects">
-        <ul class="project-list">
+      <div class="proj-grid">
 
-          <li class="project-row">
-            <a class="project-link" href="https://kaze.ai" target="_blank" rel="noopener">
-              <div><span class="proj-name">Kaze AI</span><span class="proj-year">— 2026</span></div>
-              <div class="proj-tags">Product · AI</div>
-            </a>
-          </li>
+        <!-- Kaze AI — NDA -->
+        <div class="proj-card proj-card--nda">
+          <div class="nda-bg"></div>
+          <div class="nda-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <div class="card-title">Kaze AI</div>
+            <div class="card-tag">Product · AI · 2026</div>
+          </div>
+          <div class="nda-hover">NDA · Details available upon request</div>
+        </div>
 
-          <li class="project-row" data-image="assets/images/tabit.jpg">
-            <a class="project-link" href="https://chromewebstore.google.com/detail/tabit/balfedbffogihlkfffhngojhmjpjfpcf" target="_blank" rel="noopener">
-              <div><span class="proj-name">Tabit</span><span class="proj-year">— 2026</span></div>
-              <div class="proj-tags">Product</div>
-            </a>
-          </li>
+        <!-- Tabit — placeholder -->
+        <a class="proj-card proj-card--placeholder" href="https://chromewebstore.google.com/detail/tabit/balfedbffogihlkfffhngojhmjpjfpcf" target="_blank" rel="noopener">
+          <div class="card-grad"></div>
+          <div class="card-info">
+            <div class="card-title">Tabit</div>
+            <div class="card-tag">Product · 2026</div>
+          </div>
+        </a>
 
-          <li class="project-row">
-            <a class="project-link" href="https://devpost.com/software/concreate" target="_blank" rel="noopener">
-              <div><span class="proj-name">ConCreate</span><span class="proj-year">— 2025</span></div>
-              <div class="proj-tags">Product · AI</div>
-            </a>
-          </li>
+        <!-- ConCreate — placeholder -->
+        <a class="proj-card proj-card--placeholder" href="https://devpost.com/software/concreate" target="_blank" rel="noopener">
+          <div class="card-grad"></div>
+          <div class="card-info">
+            <div class="card-title">ConCreate</div>
+            <div class="card-tag">Product · AI · 2025</div>
+          </div>
+        </a>
 
-          <li class="project-row" data-image="assets/images/ArtiNova/artinova1.png">
-            <a class="project-link" href="projects/artinova-ai.html">
-              <div><span class="proj-name">ArtiNova.ai</span><span class="proj-year">— 2024</span></div>
-              <div class="proj-tags">AIGC · Design</div>
-            </a>
-          </li>
+        <!-- ArtiNova.ai -->
+        <a class="proj-card" href="projects/artinova-ai.html">
+          <img src="assets/images/ArtiNova/artinova1.png" alt="ArtiNova.ai" />
+          <div class="card-grad"></div>
+          <div class="card-info">
+            <div class="card-title">ArtiNova.ai</div>
+            <div class="card-tag">AIGC · Design · 2024</div>
+          </div>
+        </a>
 
-          <li class="project-row" data-image="assets/images/C-Tan/ctan1.png">
-            <a class="project-link" href="projects/c-tan.html">
-              <div><span class="proj-name">C-Tan</span><span class="proj-year">— 2023</span></div>
-              <div class="proj-tags">SaaS · UI</div>
-            </a>
-          </li>
+        <!-- C-Tan -->
+        <a class="proj-card" href="projects/c-tan.html">
+          <img src="assets/images/C-Tan/ctan1.png" alt="C-Tan" />
+          <div class="card-grad"></div>
+          <div class="card-info">
+            <div class="card-title">C-Tan</div>
+            <div class="card-tag">SaaS · UI · 2023</div>
+          </div>
+        </a>
 
-          <li class="project-row" data-image="assets/images/bytedance.jpg">
-            <a class="project-link" href="projects/bytedance.html">
-              <div><span class="proj-name">Bytedance</span><span class="proj-year">— 2025</span></div>
-              <div class="proj-tags">Industry</div>
-            </a>
-          </li>
+        <!-- ByteDance — NDA -->
+        <div class="proj-card proj-card--nda">
+          <img src="assets/images/bytedance.jpg" alt="" />
+          <div class="nda-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <div class="card-title">ByteDance</div>
+            <div class="card-tag">Industry · 2025</div>
+          </div>
+          <div class="nda-hover">NDA · Details available upon request</div>
+        </div>
 
-        </ul>
       </div>
     </section>
 
     <!-- ── AI Work ── -->
     <section class="site-section" id="ai-work">
       <div class="section-label">AI Work</div>
-      <div class="projects">
 
-        <div class="subsection-label">AI Influencer</div>
-        <ul class="project-list">
-          <!-- AI Influencer projects go here -->
-        </ul>
+      <div class="subsection-label">AI Influencer</div>
+      <div class="proj-grid">
+        <!-- coming soon -->
+      </div>
 
-        <div class="subsection-label">Short Film</div>
-        <ul class="project-list">
+      <div class="subsection-label">Short Film</div>
+      <div class="proj-grid">
 
-          <li class="project-row">
-            <a class="project-link" href="projects/dawning-ai-film.html">
-              <div><span class="proj-name">Dawning AI Film</span><span class="proj-year">— 2024</span></div>
-              <div class="proj-tags">Film · AI · 3 min</div>
-            </a>
-          </li>
+        <!-- Dawning AI Film -->
+        <a class="proj-card" href="projects/dawning-ai-film.html">
+          <img src="https://img.youtube.com/vi/_VbLceO011U/maxresdefault.jpg" alt="Dawning AI Film" />
+          <div class="card-grad"></div>
+          <div class="card-info">
+            <div class="card-title">Dawning AI Film</div>
+            <div class="card-tag">Film · AI · 3 min · 2024</div>
+          </div>
+        </a>
 
-        </ul>
       </div>
     </section>
 
     <!-- ── Research ── -->
     <section class="site-section" id="research">
       <div class="section-label">Research</div>
-      <div class="projects">
-        <ul class="project-list">
+      <div class="proj-grid">
 
-          <li class="project-row" data-image="assets/images/scene2scene.jpg">
-            <a class="project-link" href="projects/scene2scene.html">
-              <div><span class="proj-name">Scene2Scene</span><span class="proj-year">— 2026</span></div>
-              <div class="proj-tags">Research</div>
-            </a>
-          </li>
+        <!-- Scene2Scene — placeholder -->
+        <a class="proj-card proj-card--placeholder" href="projects/scene2scene.html">
+          <div class="card-grad"></div>
+          <div class="card-info">
+            <div class="card-title">Scene2Scene</div>
+            <div class="card-tag">Research · 2026</div>
+          </div>
+        </a>
 
-        </ul>
       </div>
     </section>
 
     <!-- ── Games & Interactive ── -->
     <section class="site-section" id="games">
       <div class="section-label">Games &amp; Interactive</div>
-      <div class="projects">
-        <ul class="project-list">
+      <div class="proj-grid">
 
-          <li class="project-row" data-image="assets/images/dawning/A4 - 3.png">
-            <a class="project-link" href="projects/dawning.html">
-              <div><span class="proj-name">Dawning</span><span class="proj-year">— 2026</span></div>
-              <div class="proj-tags">Game · Unity</div>
-            </a>
-          </li>
+        <!-- Dawning -->
+        <a class="proj-card" href="projects/dawning.html">
+          <img src="assets/images/dawning/A4 - 3.png" alt="Dawning" />
+          <div class="card-grad"></div>
+          <div class="card-info">
+            <div class="card-title">Dawning</div>
+            <div class="card-tag">Game · Unity · 2026</div>
+          </div>
+        </a>
 
-          <li class="project-row">
-            <a class="project-link" href="https://devpost.com/software/awake-j3vrm7" target="_blank" rel="noopener">
-              <div><span class="proj-name">Awake</span><span class="proj-year">— 2024</span></div>
-              <div class="proj-tags">AI · Game</div>
-            </a>
-          </li>
+        <!-- Awake — placeholder -->
+        <a class="proj-card proj-card--placeholder" href="https://devpost.com/software/awake-j3vrm7" target="_blank" rel="noopener">
+          <div class="card-grad"></div>
+          <div class="card-info">
+            <div class="card-title">Awake</div>
+            <div class="card-tag">AI · Game · 2024</div>
+          </div>
+        </a>
 
-          <li class="project-row">
-            <a class="project-link" href="https://mark-zf.itch.io/blub-blub-bubble" target="_blank" rel="noopener">
-              <div><span class="proj-name">BlubBlub Bubble</span><span class="proj-year">— 2025</span></div>
-              <div class="proj-tags">Game</div>
-            </a>
-          </li>
+        <!-- BlubBlub Bubble — placeholder -->
+        <a class="proj-card proj-card--placeholder" href="https://mark-zf.itch.io/blub-blub-bubble" target="_blank" rel="noopener">
+          <div class="card-grad"></div>
+          <div class="card-info">
+            <div class="card-title">BlubBlub Bubble</div>
+            <div class="card-tag">Game · 2025</div>
+          </div>
+        </a>
 
-          <li class="project-row" data-image="assets/images/Virtual Empathy/1.png">
-            <a class="project-link" href="projects/virtual-empathy.html">
-              <div><span class="proj-name">Virtual Empathy</span><span class="proj-year">— 2023</span></div>
-              <div class="proj-tags">VR · Game</div>
-            </a>
-          </li>
+        <!-- Virtual Empathy -->
+        <a class="proj-card" href="projects/virtual-empathy.html">
+          <img src="assets/images/Virtual Empathy/1.png" alt="Virtual Empathy" />
+          <div class="card-grad"></div>
+          <div class="card-info">
+            <div class="card-title">Virtual Empathy</div>
+            <div class="card-tag">VR · Game · 2023</div>
+          </div>
+        </a>
 
-          <li class="project-row" data-image="assets/images/Hear Your Sound/1.png">
-            <a class="project-link" href="projects/hear-your-sound.html">
-              <div><span class="proj-name">Hear Your Sound</span><span class="proj-year">— 2023</span></div>
-              <div class="proj-tags">Interactive</div>
-            </a>
-          </li>
+        <!-- Hear Your Sound -->
+        <a class="proj-card" href="projects/hear-your-sound.html">
+          <img src="assets/images/Hear Your Sound/1.png" alt="Hear Your Sound" />
+          <div class="card-grad"></div>
+          <div class="card-info">
+            <div class="card-title">Hear Your Sound</div>
+            <div class="card-tag">Interactive · 2023</div>
+          </div>
+        </a>
 
-          <li class="project-row" data-image="assets/images/Doodle Spaceship/doodle1.png">
-            <a class="project-link" href="projects/doodle-spaceship.html">
-              <div><span class="proj-name">Doodle Spaceship</span><span class="proj-year">— 2022</span></div>
-              <div class="proj-tags">Game · Ed</div>
-            </a>
-          </li>
+        <!-- Doodle Spaceship -->
+        <a class="proj-card" href="projects/doodle-spaceship.html">
+          <img src="assets/images/Doodle Spaceship/doodle1.png" alt="Doodle Spaceship" />
+          <div class="card-grad"></div>
+          <div class="card-info">
+            <div class="card-title">Doodle Spaceship</div>
+            <div class="card-tag">Game · Ed · 2022</div>
+          </div>
+        </a>
 
-          <li class="project-row" data-image="assets/images/Eco Alert/Frame 1171275790.png">
-            <a class="project-link" href="projects/eco-alert.html">
-              <div><span class="proj-name">Eco Alert</span><span class="proj-year">— 2023</span></div>
-              <div class="proj-tags">VR · Game</div>
-            </a>
-          </li>
+        <!-- Eco Alert -->
+        <a class="proj-card" href="projects/eco-alert.html">
+          <img src="assets/images/Eco Alert/Frame 427319367.png" alt="Eco Alert" />
+          <div class="card-grad"></div>
+          <div class="card-info">
+            <div class="card-title">Eco Alert</div>
+            <div class="card-tag">VR · Game · 2023</div>
+          </div>
+        </a>
 
-        </ul>
       </div>
     </section>
 
@@ -509,18 +614,8 @@
     </div>
   </footer>
 
-  <!-- Floating preview card -->
-  <div id="previewCard" aria-hidden="true">
-    <img id="previewImg" src="" alt="" />
-    <div class="preview-info">
-      <span class="preview-title" id="previewTitle"></span>
-      <span class="preview-tag" id="previewTag"></span>
-    </div>
-  </div>
-
   <script>
     (function(){
-
       // ── Nav links → smooth scroll to sections ──
       document.querySelectorAll('.pn-mid a').forEach(el => {
         el.addEventListener('click', (e) => {
@@ -532,59 +627,6 @@
           target.scrollIntoView({ behavior: 'smooth' });
         });
       });
-
-      // ── Floating preview card ──
-      const card  = document.getElementById('previewCard');
-      const pImg  = document.getElementById('previewImg');
-      const pTitle = document.getElementById('previewTitle');
-      const pTag   = document.getElementById('previewTag');
-      let cardVisible = false;
-
-      document.addEventListener('mouseenter', (e) => {
-        const row = e.target.closest('.project-row');
-        if (!row) return;
-        const imgSrc = row.dataset.image;
-        if (!imgSrc) return;
-        const title = row.querySelector('.proj-name')?.textContent || '';
-        const tag   = row.querySelector('.proj-tags')?.textContent || '';
-        const tester = new Image();
-        tester.onload = () => {
-          pImg.src   = imgSrc;
-          pTitle.textContent = title;
-          pTag.textContent   = tag;
-          card.style.display = 'block';
-          requestAnimationFrame(() => { card.style.opacity = '1'; });
-          cardVisible = true;
-        };
-        tester.onerror = () => { hideCard(); };
-        tester.src = imgSrc;
-      }, true);
-
-      document.addEventListener('mouseleave', (e) => {
-        const row = e.target.closest('.project-row');
-        if (!row) return;
-        hideCard();
-      }, true);
-
-      document.addEventListener('mousemove', (e) => {
-        if (!cardVisible) return;
-        let x = e.clientX + 28;
-        let y = e.clientY + 18;
-        // Keep card inside viewport
-        if (x + 240 > window.innerWidth)  x = e.clientX - 260;
-        if (y + 180 > window.innerHeight) y = e.clientY - 190;
-        card.style.left = x + 'px';
-        card.style.top  = y + 'px';
-      });
-
-      function hideCard() {
-        card.style.opacity = '0';
-        cardVisible = false;
-        setTimeout(() => {
-          if (!cardVisible) { card.style.display = 'none'; pImg.src = ''; }
-        }, 180);
-      }
-
     })();
   </script>
 </body>
