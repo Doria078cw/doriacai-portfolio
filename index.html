@@ -213,15 +213,6 @@
       text-transform: uppercase;
       color: rgba(154,160,166,0.4);
     }
-    .coming-soon {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 16px 48px 32px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 12px;
-      color: rgba(255,255,255,0.2);
-      letter-spacing: 0.06em;
-    }
     /* ── Card Grid ── */
     .proj-grid {
       display: grid;
@@ -231,12 +222,73 @@
       margin: 0 auto;
       padding: 0 48px 60px;
     }
-    .proj-grid--single {
-      grid-template-columns: 1fr;
+
+    /* ── Short Film embed ── */
+    .film-embed-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 48px 48px;
     }
-    .proj-grid--single .proj-card {
-      aspect-ratio: 16/7;
+    .film-embed {
+      position: relative;
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #111;
     }
+    .film-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* ── AIGC masonry ── */
+    .aigc-masonry {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 48px;
+      columns: 3;
+      column-gap: 12px;
+    }
+    .aigc-item {
+      width: 100%;
+      break-inside: avoid;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.12);
+    }
+    .aigc-item.aigc-hidden { display: none; }
+
+    /* ── See All button ── */
+    .see-all-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 48px 60px;
+      display: flex;
+      justify-content: center;
+    }
+    .see-all-btn {
+      background: none;
+      border: 0.5px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+      padding: 10px 32px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: border-color 200ms, color 200ms;
+    }
+    .see-all-btn:hover { border-color: white; color: white; }
 
     /* Base card */
     .proj-card {
@@ -365,8 +417,9 @@
       .proj-grid        { grid-template-columns: repeat(2, 1fr); padding: 0 24px 48px; }
       .section-label    { padding: 48px 24px 20px 24px; }
       .subsection-label { padding: 20px 24px 10px 24px; }
-      .coming-soon      { padding: 12px 24px 24px; }
-      .proj-grid--single { grid-template-columns: 1fr; }
+      .film-embed-wrap  { padding: 0 24px 36px; }
+      .aigc-masonry     { padding: 0 24px; columns: 2; }
+      .see-all-wrap     { padding: 16px 24px 48px; }
     }
     @media (max-width: 540px) {
       .proj-grid { grid-template-columns: 1fr; }
@@ -520,23 +573,35 @@
     <section class="site-section" id="ai-work">
       <div class="section-label">AI Work</div>
 
-      <div class="subsection-label">AI Influencer</div>
-      <div class="coming-soon">Coming soon</div>
-
+      <!-- Short Film -->
       <div class="subsection-label">Short Film</div>
-      <div class="proj-grid proj-grid--single">
-
-        <!-- Dawning AI Film -->
-        <a class="proj-card" href="projects/dawning-ai-film.html">
-          <img src="https://img.youtube.com/vi/_VbLceO011U/maxresdefault.jpg" alt="Dawning AI Film" />
-          <div class="card-grad"></div>
-          <div class="card-info">
-            <div class="card-title">Dawning AI Film</div>
-            <div class="card-tag">Film · AI · 3 min · 2024</div>
-          </div>
-        </a>
-
+      <div class="film-embed-wrap">
+        <div class="film-embed">
+          <iframe
+            src="https://www.youtube.com/embed/_VbLceO011U"
+            title="Dawning AI Film"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
+
+      <!-- AIGC -->
+      <div class="subsection-label">AIGC</div>
+      <div class="aigc-masonry">
+        <div class="aigc-item" style="height:200px">AIGC</div>
+        <div class="aigc-item" style="height:280px">AIGC</div>
+        <div class="aigc-item" style="height:180px">AIGC</div>
+        <div class="aigc-item" style="height:320px">AIGC</div>
+        <div class="aigc-item" style="height:240px">AIGC</div>
+        <div class="aigc-item" style="height:200px">AIGC</div>
+        <div class="aigc-item aigc-hidden" style="height:260px">AIGC</div>
+        <div class="aigc-item aigc-hidden" style="height:300px">AIGC</div>
+      </div>
+      <div class="see-all-wrap">
+        <button class="see-all-btn" id="aigcToggle">See All</button>
+      </div>
+
     </section>
 
     <!-- ── Research ── -->
@@ -644,7 +709,7 @@
 
   <script>
     (function(){
-      // ── Nav links → smooth scroll to sections ──
+      // ── Nav links → smooth scroll ──
       document.querySelectorAll('.pn-mid a').forEach(el => {
         el.addEventListener('click', (e) => {
           const href = el.getAttribute('href');
@@ -655,6 +720,19 @@
           target.scrollIntoView({ behavior: 'smooth' });
         });
       });
+
+      // ── AIGC See All toggle ──
+      const btn = document.getElementById('aigcToggle');
+      if (btn) {
+        let expanded = false;
+        btn.addEventListener('click', () => {
+          expanded = !expanded;
+          document.querySelectorAll('.aigc-item.aigc-hidden').forEach(el => {
+            el.style.display = expanded ? 'flex' : 'none';
+          });
+          btn.textContent = expanded ? 'Show Less' : 'See All';
+        });
+      }
     })();
   </script>
 </body>
