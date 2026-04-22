@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Desktop/AIGCWork"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "doriacai-portfolio"
+	}
+}
