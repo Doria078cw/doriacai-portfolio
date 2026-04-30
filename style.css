@@ -57,6 +57,15 @@ body{
 
 /* Project template and about simple layout */
 .container{max-width:920px;padding:92px 36px 28px}
+
+/* Ensure main content is centered and constrained on all pages */
+main { max-width: 880px; margin: 0 auto; }
+
+/* Limit long paragraphs for better readability */
+.proj-desc, .intro p, .project-hero, .project-hero p { max-width: 72ch; }
+
+/* project topbar shouldn't be sticky (avoids overlapping the pill nav) */
+.topbar { position: static; top: auto; }
 .project-hero{padding:28px 36px}
 .project-meta{color:var(--muted);margin-top:8px}
 .stacked-img{width:100%;display:block;margin:0;padding:0;border-radius:4px;margin-bottom:18px}
