@@ -6,10 +6,9 @@
   <title>ByteDance — AI Creation &amp; Innovation Team</title>
   <link rel="stylesheet" href="../style.css" />
   <style>
-    /* Keep site dark styling; add minor project-specific tweaks */
     :root{--bg:#0b0b0c}
     html,body{height:100%;margin:0;background:var(--bg);color:var(--text)}
-    main.container{max-width:980px;margin:0 auto;padding:28px 36px}
+    main.container{max-width:980px;margin:0 auto;padding:var(--pill-offset,92px) 36px 48px}
     .project-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:600;margin:0;font-size:22px}
     .project-hero .meta{font-size:14px;color:rgba(255,255,255,0.7);margin-top:6px}
     .note{font-size:13px;color:rgba(255,255,255,0.6);font-style:italic;margin-top:10px}
@@ -18,8 +17,7 @@
     .proj-tag{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:8px}
     .proj-desc{color:rgba(255,255,255,0.85);line-height:1.6}
     .img-placeholder{height:220px;background:#0f0f11;border:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);margin-top:12px}
-    .topbar{position:sticky;top:12px;z-index:40;display:flex;align-items:center;gap:12px;padding:6px 36px 18px;background:transparent}
-    .topbar a{color:var(--muted);text-decoration:none;padding:6px 8px;background:rgba(255,255,255,0.02);border-radius:6px}
+    .topbar{position:static}
   </style>
 </head>
 <body>
@@ -74,6 +72,7 @@
       <div class="proj-title">AI-Generated Panoramic VR Video</div>
       <div class="proj-tag">Research Prototype</div>
       <div class="proj-desc">A generative AI pipeline that transforms 1–2 uploaded images into fully navigable panoramic VR environments. Unlike traditional video generation, users don't just watch — they spatially explore and interact with AI-reconstructed immersive scenes through world model approaches.</div>
+      <div class="img-placeholder">[screenshots placeholder]</div>
     </section>
 
     <section class="section">
@@ -96,112 +95,25 @@
     </section>
 
   </main>
-</body>
-</html>
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ByteDance — AI Creation &amp; Innovation Team</title>
-  <link rel="stylesheet" href="../style.css" />
-  <style>
-  :root{--bg:#0b0b0c;--muted:rgba(255,255,255,0.6)}
-  html,body{height:100%;margin:0;background:var(--bg);color:#fff}
-  .container{max-width:980px;margin:0 auto;padding:28px 36px}
-  .project-hero h1{font-family:'Space Grotesk',sans-serif;font-weight:600;margin:0;font-size:22px}
-  .project-hero .meta{font-size:14px;color:rgba(255,255,255,0.7);margin-top:6px}
-  .note{font-size:13px;color:var(--muted);font-style:italic;margin-top:10px}
-  .section{margin-top:28px}
-  .proj-title{font-weight:600;font-size:16px;margin-bottom:6px}
-  .proj-tag{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:8px}
-  .proj-desc{color:rgba(255,255,255,0.8);line-height:1.5}
-  .img-placeholder{height:220px;background:#0f0f11;border:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);margin-top:12px}
-  </style>
-</head>
-<body>
-  <nav class="nav" style="padding:18px 36px;position:sticky;top:0;background:transparent">
-    <div class="brand">Doria Cai</div>
-    <div class="nav-links"><a href="../index.html">Home</a> <a href="../about.html">About</a></div>
-  </nav>
 
-  <main class="container">
-    <section class="project-hero">
-      <h1>ByteDance — AI Creation &amp; Innovation Team</h1>
-      <div class="meta">AI Product Manager · May 2025 – Sept 2025</div>
-      <div class="note">Selected projects shown below. Detailed work available upon request due to NDA.</div>
-    </section>
+  <!-- Same dynamic pill-nav offset used on index so project pages avoid overlap -->
+  <script>
+    (function(){
+      function setPillOffset(){
+        const pill = document.querySelector('.pill-nav');
+        if (!pill) return;
+        const rect = pill.getBoundingClientRect();
+        const topFromDoc = rect.top + window.scrollY;
+        const gap = 18;
+        const offset = Math.ceil(topFromDoc + rect.height + gap);
+        document.documentElement.style.setProperty('--pill-offset', offset + 'px');
+        document.documentElement.style.setProperty('--pill-offset-mobile', Math.max(48, Math.round(rect.height + 12)) + 'px');
+      }
+      window.addEventListener('load', setPillOffset);
+      window.addEventListener('resize', () => { requestAnimationFrame(setPillOffset); });
+      document.fonts && document.fonts.ready && document.fonts.ready.then(setPillOffset).catch(()=>{});
+    })();
+  </script>
 
-    <section class="section">
-      <div class="proj-title">AI-Generated Panoramic VR Video</div>
-      <div class="proj-tag">Research Prototype</div>
-      <div class="proj-desc">A generative AI pipeline that transforms 1–2 uploaded images into fully navigable panoramic VR environments. Unlike traditional video generation, users don't just watch — they spatially explore and interact with AI-reconstructed immersive scenes through world model approaches.</div>
-    </section>
-
-    <section class="section">
-      <div class="proj-title">Environment-Aware AI 3D AR Character System</div>
-      <div class="proj-tag">Product Prototype</div>
-      <div class="proj-desc">An end-to-end pipeline that transforms a user's portrait into a fully animated 3D AR character — capable of perceiving and responding to the live camera environment in real time. The system spans 2D stylization, 3D mesh generation, and auto-rigging with 38 motion actions, deployed for mobile AR rendering. Characters contextually interact with the scene, enabling human-AI co-creation in short-form video.</div>
-      <div class="img-placeholder">[screenshots placeholder]</div>
-    </section>
-
-    <section class="section">
-      <div class="proj-title">AI Video Model Iteration — Seedance 1.5</div>
-      <div class="proj-tag">Model Engineering · Product</div>
-      <div class="proj-desc">Led optimization of Seedance 1.5, ByteDance's generative video foundation model — improving generation quality by 35–60% while reducing GPU inference cost by 25% through quality-latency tradeoff tuning. Productized and scaled core video capabilities including Video LoRA, start-end frame control, motion mimic, and audio-driven generation — reaching 1M+ daily creations and 21M+ views.</div>
-    </section>
-
-    <section class="section">
-      <div class="proj-title">Generative AI at Scale</div>
-      <div class="proj-tag">Platform · Growth</div>
-      <div class="proj-desc">Deployed AI video features including Video LoRA and Photo-to-Singing to 100M+ users. Analyzed behavioral data on non-expert creator adoption, achieving 21M+ views and 610K+ submissions.</div>
-    </section>
-
-  </main>
-</body>
-</html>
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bytedance — Project</title>
-  <link rel="stylesheet" href="../style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-  :root{--bg:#0b0b0c;--muted:rgba(255,255,255,0.7);--topbar-space:44px}
-  html,body{height:100%;margin:0;background:var(--bg);color:#fff;overflow-x:hidden}
-  main.container{height:100vh;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;scroll-behavior:smooth;scroll-padding:0;-webkit-overflow-scrolling:touch;max-width:none;width:100%;padding:0;margin:0}
-  .slide{height:calc(100vh - var(--topbar-space));scroll-snap-align:start;display:block;position:relative;margin:0;padding:0}
-  .slide > a{display:block;width:100%;height:100%}
-  .slide img{width:100%;height:100%;object-fit:contain;background:var(--bg);display:block}
-  .topbar{position:fixed;left:12px;top:8px;z-index:40;display:flex;align-items:center;gap:12px;padding:6px}
-  .topbar a{color:var(--muted);text-decoration:none;padding:6px 8px;background:rgba(255,255,255,0.04);border-radius:6px}
-  nav.nav .brand{display:none}
-  nav.nav .nav-links{display:none}
-  .project-title{font-family:'Poppins',system-ui,Helvetica,Arial;color:#fff;font-weight:300;font-size:clamp(16px,3.2vw,36px);white-space:nowrap}
-  nav.nav{position:fixed;left:0;right:0;top:0;display:flex;justify-content:space-between;padding:12px 18px;z-index:15;background:transparent}
-  .placeholder{height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px}
-  </style>
-</head>
-<body>
-  <nav class="nav">
-    <div class="brand">Doria Cai</div>
-    <div class="nav-links">
-      <a href="../index.html">Home</a>
-      <a href="../about.html">About</a>
-    </div>
-  </nav>
-
-  <main class="container">
-    <div class="topbar">
-      <a href="../index.html">← Back</a>
-      <div class="project-title">Bytedance</div>
-    </div>
-
-    <section class="slide">
-      <div class="placeholder">No project images added yet.</div>
-    </section>
-  </main>
 </body>
 </html>

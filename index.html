@@ -704,13 +704,12 @@
             </a>
 
             <!-- ByteDance — clickable project card -->
-            <a class="proj-card" href="projects/bytedance.html">
-              <img src="assets/images/bytedance.jpg" alt="ByteDance" />
+            <a class="proj-card" href="projects/bytedance.html" style="background:#fff;">
+              <img src="assets/images/bytedance-cover.png" alt="ByteDance" style="object-fit:contain;">
               <div class="card-grad"></div>
               <div class="card-info">
-                <div class="card-title">ByteDance</div>
                 <div class="card-tag">Industry · 2025</div>
-                <div class="card-small">Selected projects — detailed work available upon request</div>
+                <div class="card-small" style="color:rgba(255,255,255,0.4);font-size:11px;">Selected projects — detailed work available upon request</div>
               </div>
             </a>
 
@@ -1140,6 +1139,27 @@
       // in case content changes dynamically, observe mutations on the intro-text
       const obs = new MutationObserver(() => { syncHeights(); });
       obs.observe(text, { childList: true, subtree: true, characterData: true });
+    })();
+  </script>
+  <!-- Dynamic pill-nav offset: measure pill height and set CSS vars to avoid overlap -->
+  <script>
+    (function(){
+      function setPillOffset(){
+        const pill = document.querySelector('.pill-nav');
+        if (!pill) return;
+        const rect = pill.getBoundingClientRect();
+        // prefer using the distance from the top of the document plus height
+        const topFromDoc = rect.top + window.scrollY;
+        const gap = 18; // visual gap below the pill
+        const offset = Math.ceil(topFromDoc + rect.height + gap);
+        document.documentElement.style.setProperty('--pill-offset', offset + 'px');
+        // mobile fallback: smaller offset but at least 48px
+        document.documentElement.style.setProperty('--pill-offset-mobile', Math.max(48, Math.round(rect.height + 12)) + 'px');
+      }
+      window.addEventListener('load', setPillOffset);
+      window.addEventListener('resize', () => { requestAnimationFrame(setPillOffset); });
+      // re-measure after fonts are ready
+      document.fonts && document.fonts.ready && document.fonts.ready.then(setPillOffset).catch(()=>{});
     })();
   </script>
 </body>
