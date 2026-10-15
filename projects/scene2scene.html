@@ -1,45 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Scene2Scene — Project</title>
-  <link rel="stylesheet" href="../style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-  :root{--bg:#0b0b0c;--muted:rgba(255,255,255,0.7);--topbar-space:44px}
-  html,body{height:100%;margin:0;background:var(--bg);color:#fff;overflow-x:hidden}
-  main.container{height:100vh;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;scroll-behavior:smooth;scroll-padding:0;-webkit-overflow-scrolling:touch;max-width:none;width:100%;padding:0;margin:0}
-  .slide{height:calc(100vh - var(--topbar-space));scroll-snap-align:start;display:block;position:relative;margin:0;padding:0}
-  .slide > a{display:block;width:100%;height:100%}
-  .slide img{width:100%;height:100%;object-fit:contain;background:var(--bg);display:block}
-  .topbar{position:fixed;left:12px;top:8px;z-index:40;display:flex;align-items:center;gap:12px;padding:6px}
-  .topbar a{color:var(--muted);text-decoration:none;padding:6px 8px;background:rgba(255,255,255,0.04);border-radius:6px}
-  nav.nav .brand{display:none}
-  nav.nav .nav-links{display:none}
-  .project-title{font-family:'Poppins',system-ui,Helvetica,Arial;color:#fff;font-weight:300;font-size:clamp(16px,3.2vw,36px);white-space:nowrap}
-  nav.nav{position:fixed;left:0;right:0;top:0;display:flex;justify-content:space-between;padding:12px 18px;z-index:15;background:transparent}
-  .placeholder{height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px}
-  </style>
-</head>
-<body>
-  <nav class="nav">
-    <div class="brand">Doria Cai</div>
-    <div class="nav-links">
-      <a href="../index.html">Home</a>
-      <a href="../about.html">About</a>
-    </div>
-  </nav>
+<!DOCTYPE html>
 
-  <main class="container">
-    <div class="topbar">
-      <a href="../index.html">← Back</a>
-      <div class="project-title">Scene2Scene</div>
-    </div>
-
-    <section class="slide">
-      <div class="placeholder">No project images added yet.</div>
-    </section>
-  </main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Scene2Scene — Doria Wei Cai</title><link href="../style.css" rel="stylesheet"/><link href="../project.css" rel="stylesheet"/></head>
+<body class="research-detail"><header class="detail-header"><a href="../index.html#research">← All work</a><h1>Scene2Scene</h1><p class="detail-summary">LLM-driven 3D Spatial Blockout for Guided AI Video Synthesis</p><div class="detail-meta">I3D 2026</div><p class="author-list">Yutong Alison Mei*, <strong>Wei Cai*</strong><br/><span class="author-note">* Equal contribution</span></p><div class="detail-links"><a href="https://dl.acm.org/doi/epdf/10.1145/3807895.3807932" rel="noopener" target="_blank">Paper PDF ↗</a></div></header>
+<main class="container">
+<section class="case-section"><h2>Background &amp; mechanism</h2><p>Text prompts can leave character placement and camera composition ambiguous. Scene2Scene turns a narrative prompt into a lightweight 3D blockout, where creators can reposition characters and adjust the viewpoint before exporting a spatial reference for video generation.</p></section>
+<figure class="research-figure"><img alt="Scene2Scene workflow: a narrative prompt, interactive 3D spatial editing, and a generated video scene" src="../assets/images/Scene2Scene/workflow.webp"/><figcaption>A prompt becomes an editable blockout, then a spatial reference for video generation. Figure from our Scene2Scene poster.</figcaption></figure><section class="case-section"><h2>Interaction demo</h2><p>Creators directly manipulate the scene and camera, inspect the composition, and export a preview to guide generation. This prototype recording shows the transition from an editable layout to a generated scene.</p></section><figure class="demo-video" id="demo"><video controls="" playsinline="" poster="../assets/images/Scene2Scene/generated-preview.jpg" preload="none"><source src="../assets/videos/scene2scene-demo.mp4" type="video/mp4"/></video></figure>
+<section class="case-section"><h2>My contribution</h2><ul class="contribution-list"><li>Co-first author; co-developed the spatial authoring system.</li><li>Implemented interactive object placement and camera controls.</li><li>Connected editable 3D blockouts with the video-generation workflow.</li></ul></section>
+<section class="case-section"><h2>What we studied</h2><p>We examined whether direct spatial editing helped people express their intended layouts more clearly than text-only prompting. Ten participants tried both conditions and rated how closely the generated videos matched their spatial intent.</p></section>
+<section class="case-section"><h2>What we learned</h2><div><p>Spatial editing received a mean intent-fidelity score of 4.5 out of 5, compared with 3.1 for text-only prompting. Eight of ten participants preferred it. Participants valued direct control, though 3D navigation added effort for those with less cinematography experience.</p><p class="study-limit">These findings are preliminary: the study used a small sample, subjective ratings, and a fixed condition order.</p></div></section>
+</main><footer class="detail-footer"><a href="../index.html#research">← Back to all work</a></footer></body></html>

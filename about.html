@@ -1,36 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About — Doria Cai</title>
-  <link rel="stylesheet" href="/Users/doria/doriacai-portfolio/style.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>About — Doria Wei Cai</title>
+<meta content="Doria Wei Cai is an HCI researcher exploring human–AI co-creation, creativity support, and multimodal and spatial interaction." name="description"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="home.css" rel="stylesheet"/>
 </head>
-<body>
-  <nav class="nav">
-    <div class="brand">Doria Cai</div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-
-  <main class="container">
-    <section style="padding-top:28px">
-      <h1 style="margin:0;color:var(--text)">About</h1>
-  <p class="project-meta">Hi, I’m Doria! I’m an HCI researcher who recently completed my M.A. in Design and Development of Digital Games at Columbia University. I’m interested in human–AI co-creation, creativity support tools, and multimodal interaction. My research explores how AI can better support human creativity, expression, and collaboration.</p>
-
-  <p class="project-meta">I have been fortunate to receive research mentorship from Prof. Xiang “Anthony” Chen at UCLA, Prof. Ray LC at City University of Hong Kong, and Prof. Joey Lee at Teachers College, Columbia University.</p>
-
-  <p class="project-meta">Beyond research, I love making games and experimenting with AI in my own creative work. I won Best Design at Global Game Jam, and my AI short film was selected as a finalist and Autodesk Award nominee at the MIT AI Film Festival. In industry, I have worked on AI-powered creation tools at <a class="bio-link" href="https://www.bytedance.com" target="_blank" rel="noopener">ByteDance</a>, <a class="bio-link" href="https://www.meitu.com" target="_blank" rel="noopener">Meitu</a>, and <a class="bio-link" href="https://kaze.ai" target="_blank" rel="noopener">Kaze.ai</a>, with projects in generative image and video, 3D, AR, and creative AI experiences.</p>
-
-      <h3 style="margin-top:28px">Contact</h3>
-      <p class="project-meta">Email: <a href="mailto:hello@doriacai.com" style="color:var(--text);text-decoration:none">hello@doriacai.com</a></p>
-    </section>
-  </main>
-
-  <footer id="contact" style="padding:40px 36px 120px;color:var(--muted)">
-    <div class="container">Thanks for visiting.</div>
-  </footer>
+<body class="about-page">
+<nav aria-label="Main navigation" class="pill-nav">
+<!-- LEFT: orbit icon + domain + subtitle -->
+<a class="pn-left" href="index.html">
+<svg class="orbit-icon" fill="none" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+<!-- center dot -->
+<circle cx="16" cy="16" fill="white" r="2"></circle>
+<!-- ring 1: outer, slow -->
+<g class="orbit-r1">
+<ellipse cx="16" cy="16" opacity="0.55" rx="13" ry="4" stroke="white" stroke-width="0.8"></ellipse>
+<circle cx="29" cy="16" fill="white" opacity="0.9" r="1.8"></circle>
+</g>
+<!-- ring 2: mid, medium, pre-rotated 60° -->
+<g class="orbit-r2" style="transform:rotate(60deg);transform-origin:16px 16px">
+<ellipse cx="16" cy="16" opacity="0.4" rx="9" ry="3.2" stroke="white" stroke-width="0.8"></ellipse>
+<circle cx="25" cy="16" fill="white" opacity="0.75" r="1.5"></circle>
+</g>
+<!-- ring 3: inner, fast, pre-rotated 120° -->
+<g class="orbit-r3" style="transform:rotate(120deg);transform-origin:16px 16px">
+<ellipse cx="16" cy="16" opacity="0.3" rx="5.5" ry="2" stroke="white" stroke-width="0.8"></ellipse>
+<circle cx="21.5" cy="16" fill="white" opacity="0.6" r="1.2"></circle>
+</g>
+</svg>
+<div class="pn-brand-text">
+<span class="pn-domain">doriacai.space</span>
+<span class="pn-subtitle">HCI Researcher</span>
+</div>
+</a>
+<!-- CENTER: section links -->
+<div class="pn-mid"><a href="index.html#research">Work</a><a aria-current="page" href="about.html">About</a></div>
+</nav>
+<main class="about-main"> <header class="intro" id="about">
+<img alt="Doria Wei Cai" class="intro-photo" src="assets/images/doria-bio.png"/>
+<div class="intro-text">
+<h1>Doria Wei Cai</h1>
+<p class="intro-role">HCI Researcher</p>
+<p class="intro-focus">Human–AI Co-Creation · Creativity Support · Multimodal &amp; Spatial Interaction</p>
+<p>Hi, I’m Doria! I’m an HCI researcher who recently completed my M.A. in Design and Development of Digital Games at Columbia University. I’m interested in human–AI co-creation, creativity support tools, and multimodal interaction. My research explores how AI can better support human creativity, expression, and collaboration.</p>
+<p>I have been fortunate to receive research mentorship from Prof. <a class="bio-link" href="https://hci.ucla.edu/" rel="noopener" target="_blank">Xiang “Anthony” Chen</a> at UCLA, Prof. <a class="bio-link" href="https://www.scm.cityu.edu.hk/en/people/ray-lc" rel="noopener" target="_blank">Ray LC</a> at City University of Hong Kong, Prof. <a class="bio-link" href="https://www.tc.columbia.edu/faculty/jl3471/" rel="noopener" target="_blank">Joey Lee</a> at Columbia University, and Prof. <a class="bio-link" href="https://raynez.art/team/" rel="noopener" target="_blank">Lei Zhang</a> at NJIT.</p>
+<p>Beyond research, I love making games and experimenting with AI in my own creative work. I won Best Design at Global Game Jam, and my AI short film was selected as a finalist and Autodesk Award nominee at the MIT AI Film Festival. In industry, I have worked on AI-powered creation tools at <a class="bio-link" href="https://www.bytedance.com" rel="noopener" target="_blank">ByteDance</a>, <a class="bio-link" href="https://www.meitu.com" rel="noopener" target="_blank">Meitu</a>, and <a class="bio-link" href="https://kaze.ai" rel="noopener" target="_blank">Kaze.ai</a>, with projects in generative image and video, 3D, AR, and creative AI experiences.</p>
+<div aria-label="Contact links" class="intro-contact" id="contact"><a aria-label="Email: wc2876@tc.columbia.edu" class="contact-icon" href="mailto:wc2876@tc.columbia.edu" title="wc2876@tc.columbia.edu"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m3 6 9 7 9-7"></path></svg></a><a aria-label="LinkedIn" class="contact-icon" href="https://www.linkedin.com/in/wei-cai-b1316a303" rel="noopener" target="_blank" title="LinkedIn">
+<svg viewbox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.989V9h3.101v1.561h.044c.432-.818 1.487-1.681 3.061-1.681 3.274 0 3.878 2.154 3.878 4.955v6.617zM5.337 7.433a1.8 1.8 0 1 1 0-3.601 1.8 1.8 0 0 1 0 3.601zM6.961 20.452H3.71V9h3.251v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+</a><a aria-label="GitHub" class="contact-icon" href="https://github.com/Doria078cw" rel="noopener" target="_blank" title="GitHub">
+<svg viewbox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+</a></div>
+</div>
+</header></main>
 </body>
 </html>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 :root{
   --bg:#0a0a0a;
@@ -122,8 +122,8 @@ a.button{display:inline-block;padding:10px 14px;border-radius:8px;background:rgb
 .proj-card>img{width:100%;height:100%;object-fit:cover;display:block}
 .card-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,transparent 60%);pointer-events:none}
 .card-info{position:absolute;bottom:0;left:0;right:0;padding:16px}
-.card-title{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:15px;color:white;margin:0 0 4px;line-height:1.3}
-.card-tag{font-family:'Space Grotesk',sans-serif;font-size:11px;color:rgba(255,255,255,0.5)}
+.card-title{font-family:'Montserrat',sans-serif;font-weight:500;font-size:15px;color:white;margin:0 0 4px;line-height:1.3}
+.card-tag{font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(255,255,255,0.5)}
 .proj-card--placeholder{background:#1a1a1a;border:1px solid rgba(255,255,255,0.06)}
 .proj-card--placeholder .card-grad{display:none}
 .proj-card--placeholder .card-info{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;bottom:auto}
@@ -136,9 +136,9 @@ a.button{display:inline-block;padding:10px 14px;border-radius:8px;background:rgb
 .nda-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:16px;transition:opacity 0.25s}
 .nda-center svg{opacity:0.5;margin-bottom:6px}
 .nda-center .card-title{color:rgba(255,255,255,0.7)}
-.nda-hover{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;font-family:'Space Grotesk',sans-serif;font-size:12px;color:rgba(255,255,255,0.55);text-align:center;letter-spacing:0.04em;opacity:0;transition:opacity 0.25s}
+.nda-hover{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;font-family:'Montserrat',sans-serif;font-size:12px;color:rgba(255,255,255,0.55);text-align:center;letter-spacing:0.04em;opacity:0;transition:opacity 0.25s}
 .proj-card--nda:hover .nda-center{opacity:0}
 .proj-card--nda:hover .nda-hover{opacity:1}
-.nda-btn{margin-top:10px;padding:5px 14px;border:0.5px solid rgba(255,255,255,0.3);border-radius:999px;font-family:'Space Grotesk',sans-serif;font-size:11px;color:rgba(255,255,255,0.75);text-decoration:none;letter-spacing:0.05em;transition:background 140ms,border-color 140ms;pointer-events:all}
+.nda-btn{margin-top:10px;padding:5px 14px;border:0.5px solid rgba(255,255,255,0.3);border-radius:999px;font-family:'Montserrat',sans-serif;font-size:11px;color:rgba(255,255,255,0.75);text-decoration:none;letter-spacing:0.05em;transition:background 140ms,border-color 140ms;pointer-events:all}
 .nda-btn:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.5)}
 
