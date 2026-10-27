@@ -35,6 +35,7 @@ main.container { width:100%; max-width:1200px; height:auto; overflow:visible; sc
 .case-section { display:grid; grid-template-columns:200px minmax(0,1fr); gap:32px; padding:32px 0; border-bottom:1px solid #383d42; }
 .case-section h2 { margin:0; font-size:20px; font-weight:500; }
 .case-section p { margin:0; max-width:68ch; color:#c7cbd0; font-size:17px; line-height:1.85; }
+.case-section .presentation-note a { color:var(--accent); text-underline-offset:4px; }
 .case-section .detail-links { margin:0; }
 .case-body { max-width:1200px; margin:auto; padding:0 32px; }
 @media(max-width:650px) { .case-section { grid-template-columns:1fr; gap:12px; padding:24px 0; } .case-body { padding:0 24px; } }
