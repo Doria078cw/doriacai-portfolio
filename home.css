@@ -185,10 +185,11 @@ main { max-width:1280px; padding:0 40px 64px; }
 .work-anchor { display:block; scroll-margin-top:100px; }
 .work-topics { color:#aeb8bf; font-size:13px; margin:14px 0 0; }
 .research-info>.venue-badge,.research-confidential .venue-badge { display:inline-block; width:fit-content; max-width:100%; padding:7px 15px; margin:0 0 16px; border:1px solid #689e80; border-radius:999px; background:#173023; color:#b2f2ce; font-size:16px; font-weight:600; line-height:1.5; letter-spacing:0; }
-.research-heading-row { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px 20px; margin-bottom:14px; }
-.research-heading-row h3 { margin:0; }
+.research-heading-row { display:flex; flex-direction:column; align-items:flex-start; gap:12px; margin-bottom:14px; }
+.research-heading-row h3,.selected-info .research-heading-row h3 { margin:0; }
 .research-heading-row .venue-badge { display:inline-block; width:fit-content; max-width:100%; margin:0; padding:6px 13px; border:1px solid #689e80; border-radius:999px; background:#173023; color:#b2f2ce; font-size:14px; font-weight:600; line-height:1.5; letter-spacing:0; }
 .research-heading-row h3,.research-heading-row .venue-badge { flex-shrink:0; }
+.venue-badge--link { text-decoration:none; }
 .research-info .research-heading-row h3 { margin:0; }
 .featured-work>.research-confidential { padding:28px 0 32px; }
 .featured-work>.research-confidential+.selected-project { border-top:1px solid var(--rule); }

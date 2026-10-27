@@ -14,6 +14,7 @@ main.container { width:100%; max-width:1200px; height:auto; overflow:visible; sc
 .detail-meta { color:var(--muted); font-size:16px; }
 .detail-tags { display:flex; flex-wrap:wrap; gap:8px; }
 .detail-tags .meta-chip { display:inline-block; padding:5px 12px; border:1px solid #454c52; border-radius:999px; background:#1b1f22; color:#e2e6e9; font-size:15px; font-weight:500; line-height:1.5; }
+.detail-tags .meta-chip--event { border-color:#426655; background:#14271e; color:#a0f0c8; font-weight:600; text-decoration:none; }
 .detail-links { display:flex; flex-wrap:wrap; gap:24px; margin-top:20px; }
 .detail-links a { color:var(--accent); text-underline-offset:5px; }
 .detail-header .detail-links a { padding:8px 16px; border:1px solid #416553; border-radius:999px; background:#14231c; color:#a0f0c8; font-size:15px; text-decoration:none; }
