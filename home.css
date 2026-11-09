@@ -221,3 +221,6 @@ main { max-width:1280px; padding:0 40px 64px; }
  .filter-pill { padding:8px 12px; min-height:40px; font-size:13px; }
  .work-grid { grid-template-columns:1fr; }
 }
+
+.cotok-status-row { display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; }
+.cotok-milestone { color:#a0f0c8; font-size:14px; font-weight:600; line-height:1.5; }
